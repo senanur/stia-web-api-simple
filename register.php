@@ -5,7 +5,7 @@
 require_once('koneksi.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    var_dump($_POST);
+    // var_dump($_POST);
 
     // mengambil nilai dari tabel user
     $username = $_POST['username'];

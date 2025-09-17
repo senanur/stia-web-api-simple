@@ -1,14 +1,16 @@
 <?php
 
-header('Content-type:application/json');
-error_reporting(0);
+// header('Content-type:application/json');
+// error_reporting(0);
 require_once('koneksi.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    var_dump($_POST);
+
     // mengambil nilai dari tabel user
     $username = $_POST['username'];
     $email = $_POST['email'];
-    $password = md5($_POST('password'));
+    $password = md5($_POST['password']);
 
     $check = mysqli_query($koneksi, "SELECT * FROM user WHERE email = '$email'");
 

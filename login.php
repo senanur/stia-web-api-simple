@@ -9,19 +9,21 @@ $password = md5($_POST['password']);
 
 // query cek user
 $sql = "SELECT * FROM user where email='$email' AND password='$password' LIMIT 1";
-
+// var_dump($_POST);
 $result = mysqli_query($koneksi, $sql);
 
 if (mysqli_num_rows($result) > 0) {
     $user = mysqli_fetch_assoc($result);
 
+    
+
     echo json_encode([
-        "status" => "sukses",
-        "message" => "login",
+        "status" => "success",
+        "message" => "login berhasil",
         "data" => [
             "iduser" => $user['iduser'],
             "username" => $user['username'],
-            "email" => $user['email']
+            "password" => $user['password'],
         ]
     ]);
 } else {

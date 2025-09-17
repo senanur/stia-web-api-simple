@@ -1,5 +1,7 @@
 <?php
 
+header('Content-type:application/json');
+
 require_once("koneksi.php");
 
 if (isset($_GET['idproduk'])) {
@@ -14,5 +16,4 @@ while ($row = mysqli_fetch_assoc($query)) {
     $result[] = $row;
 }
 
-header('Content-type:application/json');
 echo json_encode(array('result' => $result));
